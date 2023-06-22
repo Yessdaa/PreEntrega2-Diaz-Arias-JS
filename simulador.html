@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto JS</title>
+    <link rel="stylesheet" href="simulador.css">
+</head>
+<body>
+
+  <h1>Busca la operacion a realizar</h1>
+
+  <input type="text" id="searchInput" placeholder="Buscar">
+  <ul id="list"></ul>
+
+  <script>
+    // Array de busqueda
+    var array = ["Suma", "Resta", "Division", "Multiplicacion",];
+
+    var searchInput = document.getElementById("searchInput");
+    var list = document.getElementById("list");
+
+    function updateList() {
+      list.innerHTML = "";
+
+      var searchTerm = searchInput.value.toLowerCase();
+
+      var filteredArray = array.filter(function(item) {
+        return item.toLowerCase().indexOf(searchTerm) !== -1;
+      });
+
+      // Agregar los elementos filtrados a la lista
+      filteredArray.forEach(function(item) {
+        var li = document.createElement("li");
+        li.textContent = item;
+        list.appendChild(li);
+      });
+    }
+
+    searchInput.addEventListener("input", updateList);
+
+    updateList();
+  </script>
+</body>
+</html>
+
+    <div class="calculator">
+        <input type="text" id="result" placeholder="0" readonly>
+        <input type="button" value="1" onclick="appendNumber(1)">
+        <input type="button" value="2" onclick="appendNumber(2)">
+        <input type="button" value="3" onclick="appendNumber(3)">
+        <input type="button" value="+" onclick="appendOperator('+')">
+        <input type="button" value="4" onclick="appendNumber(4)">
+        <input type="button" value="5" onclick="appendNumber(5)">
+        <input type="button" value="6" onclick="appendNumber(6)">
+        <input type="button" value="-" onclick="appendOperator('-')">
+        <input type="button" value="7" onclick="appendNumber(7)">
+        <input type="button" value="8" onclick="appendNumber(8)">
+        <input type="button" value="9" onclick="appendNumber(9)">
+        <input type="button" value="*" onclick="appendOperator('*')">
+        <input type="button" value="0" onclick="appendNumber(0)">
+        <input type="button" value="/" onclick="appendOperator('/')">
+        <input type="button" value="C" onclick="clearResult()">
+        <input type="button" value="=" onclick="calculate()">
+      </div>
+    
+</body>
+<script>src="simulador.js"</script>
+</head>
+
